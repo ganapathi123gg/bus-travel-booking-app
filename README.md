@@ -30,3 +30,31 @@ A full-stack bus travel booking application built with **React** (frontend) and 
 ---
 
 ## 📁 Project Structure
+
+BUS_TRAVEL_APP/
+├── React_Django_travels_project-main/ # React Frontend
+│ ├── src/
+│ │ ├── components/ # React components
+│ │ │ ├── BusList.jsx
+│ │ │ ├── BusSeats.jsx
+│ │ │ ├── LoginForm.jsx
+│ │ │ ├── RegisterForm.jsx
+│ │ │ └── UserBookings.jsx
+│ │ ├── App.jsx
+│ │ └── main.jsx
+│ ├── package.json
+│ └── vite.config.js
+│
+└── Travels_App_DjangRF-main/ # Django Backend
+├── travels/
+│ ├── bookings/
+│ │ ├── models.py # Bus & Booking models
+│ │ ├── views.py # API endpoints
+│ │ ├── serializers.py # Data serialization
+│ │ ├── urls.py # API routes
+│ │ └── admin.py # Admin panel
+│ ├── travels/
+│ │ ├── settings.py # Django config
+│ │ └── urls.py # Main routes
+│ └── manage.py
+└── requirements.txt
