@@ -1,0 +1,43 @@
+# Python & Django
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+db.sqlite3
+*.sqlite3
+media/
+staticfiles/
+Travels_App_DjangRF-main/db.sqlite3
+
+# Virtual Environment
+venv/
+env/
+.venv/
+Travels_App_DjangRF-main/venv/
+Travels_App_DjangRF-main/env/
+
+# Node Modules (React)
+node_modules/
+React_Django_travels_project-main/node_modules/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment Variables
+.env
+.env.local
+.env.production
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Build Files
+dist/
+build/
+React_Django_travels_project-main/dist/
+React_Django_travels_project-main/build/
