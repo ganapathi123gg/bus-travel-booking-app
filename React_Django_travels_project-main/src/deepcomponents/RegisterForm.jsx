@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '../config'
 
 const RegisterForm = () => {
     const [form, setForm] = useState({
@@ -16,7 +17,7 @@ const RegisterForm = () => {
         e.preventDefault()
         setIsLoading(true)
         try {
-            await axios.post('http://localhost:8000/api/register/', form);
+            await axios.post(`${API_BASE_URL}/register/`, form);
             setMessage('Registration successful! You can now login.')
             setForm({ username: '', email: '', password: '' })
         } catch (error) {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../config'
 
 const UserBookings = ({ token, userId }) => {
   const [bookings, setBookings] = useState([]);
@@ -8,7 +9,7 @@ const UserBookings = ({ token, userId }) => {
   useEffect(() => {
     if (!token || !userId) return;
 
-    fetch(`http://localhost:8000/api/user/${userId}/bookings/`, {
+    fetch(`${API_BASE_URL}/user/${userId}/bookings/`, {
       headers: {
         Authorization: `Token ${token}`,
       },

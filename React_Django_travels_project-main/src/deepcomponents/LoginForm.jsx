@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { API_BASE_URL } from '../config'
 
 const LoginForm = ({ onLogin }) => {
     const [form, setForm] = useState({
@@ -14,14 +15,12 @@ const LoginForm = ({ onLogin }) => {
     }
 
     const navigate = useNavigate()
-    const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsLoading(true)
         try {
-            const response = await axios.post('http://localhost:8000/api/login/', form)
+            const response = await axios.post(`${API_BASE_URL}/login/`, form)
             setMessage('Login Success')
             if (onLogin) {
                 onLogin(response.data.token, response.data.user_id)

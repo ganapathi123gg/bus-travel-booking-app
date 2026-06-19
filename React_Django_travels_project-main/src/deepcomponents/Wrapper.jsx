@@ -35,7 +35,7 @@ const Wrapper = ({ token, handleLogout, children }) => {
                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" 
                   />
                 </svg>
-                <span className="text-xl font-bold">Spring Travels</span>
+<span className="text-xl font-bold">Ganapathi Travels</span>
               </Link>
               
               {token && (
@@ -89,7 +89,7 @@ const Wrapper = ({ token, handleLogout, children }) => {
       <footer className="bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <p className="text-center text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} TravelEase. All rights reserved.
+&copy; {new Date().getFullYear()} Ganapathi Travels. All rights reserved.
           </p>
         </div>
       </footer>

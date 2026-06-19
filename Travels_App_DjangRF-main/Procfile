@@ -1,0 +1,1 @@
+web: gunicorn travels.wsgi --chdir travels --log-file -

@@ -1,13 +1,15 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { API_BASE_URL } from '../config'
 
 const BusSeats = ({ token }) => {
     const [bus, setBus] = useState(null)
     const [seats, setSeats] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null)
-    const [selectedSeat, setSelectedSeat] = useState(null)
+// selected seat state reserved for future UI improvements
+// const [selectedSeat, setSelectedSeat] = useState(null)
 
     const { busId } = useParams()
     const navigate = useNavigate()
@@ -15,7 +17,7 @@ const BusSeats = ({ token }) => {
     useEffect(() => {
         const fetchBusDetails = async () => {
             try {
-                const response = await axios(`http://localhost:8000/api/buses/${busId}`)
+const response = await axios(`${API_BASE_URL}/buses/${busId}`)
                 setBus(response.data)
                 setSeats(response.data.seats || [])
             } catch (error) {
@@ -36,8 +38,8 @@ const BusSeats = ({ token }) => {
         }
       
         try {
-          const res = await axios.post(
-            'http://localhost:8000/api/booking/',
+await axios.post(
+            `${API_BASE_URL}/booking/`,
             { seat: seatId },
             {
               headers: {
@@ -147,13 +149,11 @@ const BusSeats = ({ token }) => {
                             <button
                                 key={seat.id}
                                 onClick={() => !seat.is_booked && handleBook(seat.id)}
-                                disabled={seat.is_booked || selectedSeat === seat.id}
+                                disabled={seat.is_booked}
                                 className={`relative p-4 rounded-lg flex flex-col items-center justify-center transition-all duration-200 ${
-                                    seat.is_booked 
-                                        ? 'bg-red-100 cursor-not-allowed' 
-                                        : selectedSeat === seat.id
-                                            ? 'bg-yellow-100'
-                                            : 'bg-green-100 hover:bg-green-200 cursor-pointer'
+                                    seat.is_booked
+                                        ? 'bg-red-100 cursor-not-allowed'
+                                        : 'bg-green-100 hover:bg-green-200 cursor-pointer'
                                 }`}
                             >
                                 <span className={`text-lg font-medium ${
@@ -164,11 +164,7 @@ const BusSeats = ({ token }) => {
                                 {seat.is_booked && (
                                     <span className="text-xs text-red-600 mt-1">Booked</span>
                                 )}
-                                {selectedSeat === seat.id && !seat.is_booked && (
-                                    <div className="absolute top-0 right-0 -mt-2 -mr-2">
-                                        <div className="animate-ping h-4 w-4 rounded-full bg-yellow-400 opacity-75"></div>
-                                    </div>
-                                )}
+
                             </button>
                         ))}
                     </div>
